@@ -15,6 +15,10 @@ class ShoppingList extends Component {
     this.props.deleteItem(id);
   }
 
+  onUpdateClick = (id, name) => {
+    this.props.updateModalState(id,name);
+  }
+
   render() {
     const { items } = this.props.item;
     return(
@@ -24,6 +28,12 @@ class ShoppingList extends Component {
             {items.map(({ _id, name }) => (
               <CSSTransition key={_id} timeout={500} classNames="fade">
                 <ListGroupItem>
+                <Button
+                  className="modify-btn"
+                  color="primary"
+                  size="sm"
+                  onClick={this.onUpdateClick.bind(this, _id, name)}
+                  >&times;</Button>
                 <Button
                   className="remove-btn"
                   color="danger"

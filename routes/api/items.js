@@ -24,6 +24,15 @@ router.post('/', (req, res) => {
   newItem.save().then(item => res.json(item));
 });
 
+// @route   UPDATE api/items/:id
+// @desc    UPDATE A Item
+// @access  Public
+router.put('/:id', (req, res) => {
+  Item.findByIdAndUpdate(req.params.id, req.body, {new: true})
+    .then(item => res.json(item))
+    .catch(err => res.status(404).json({ success: false }))
+});
+
 // @route   DELETE api/items/:id
 // @desc    Delete A Item
 // @access  Public

@@ -1,5 +1,11 @@
 .remove-btn {
   margin-right:  0.5rem;
+  float: right;
+}
+
+.modify-btn {
+  margin-right:  0.5rem;
+  float: right;
 }
 
 .fade-enter {
